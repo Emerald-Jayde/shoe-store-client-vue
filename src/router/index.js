@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Dashboard from "../views/Dashboard.vue";
-import Tables from "../views/Tables.vue";
-import Billing from "../views/Billing.vue";
-import VirtualReality from "../views/VirtualReality.vue";
-import RTL from "../views/Rtl.vue";
+import Home from "../views/Home.vue";
+import Stores from "../views/Stores.vue";
+import ShoeModels from "../views/ShoeModels.vue";
 import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
 import Signin from "../views/Signin.vue";
@@ -12,32 +10,27 @@ const routes = [
   {
     path: "/",
     name: "/",
-    redirect: "/dashboard-default",
+    redirect: "/inventory", // this will be sign in after
   },
   {
-    path: "/dashboard-default",
-    name: "Dashboard",
-    component: Dashboard,
+    path: "/inventory",
+    name: "Live Inventory",
+    component: Home,
   },
   {
-    path: "/tables",
-    name: "Tables",
-    component: Tables,
+    path: "/stores",
+    name: "Stores",
+    component: Stores,
   },
   {
-    path: "/billing",
-    name: "Billing",
-    component: Billing,
+    path: "/shoe-models",
+    name: "Shoe Models",
+    component: ShoeModels,
   },
   {
-    path: "/virtual-reality",
-    name: "Virtual Reality",
-    component: VirtualReality,
-  },
-  {
-    path: "/rtl-page",
-    name: "RTL",
-    component: RTL,
+    path: "/insights",
+    name: "Insights",
+    component: Stores,
   },
   {
     path: "/profile",

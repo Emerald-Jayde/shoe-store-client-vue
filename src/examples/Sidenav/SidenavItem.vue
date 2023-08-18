@@ -6,8 +6,7 @@
       <slot name="icon"></slot>
     </div>
     <span
-      class="nav-link-text"
-      :class="this.$store.state.isRTL ? ' me-1' : 'ms-1'"
+      class="nav-link-text ms-1"
       >{{ navText }}</span
     >
   </router-link>

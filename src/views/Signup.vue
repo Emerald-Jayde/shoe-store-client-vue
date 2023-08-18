@@ -126,12 +126,10 @@
       </div>
     </div>
   </main>
-  <app-footer />
 </template>
 
 <script>
 import Navbar from "@/examples/PageLayout/Navbar.vue";
-import AppFooter from "@/examples/PageLayout/Footer.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonCheckbox from "@/components/ArgonCheckbox.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
@@ -141,7 +139,6 @@ export default {
   name: "signin",
   components: {
     Navbar,
-    AppFooter,
     ArgonInput,
     ArgonCheckbox,
     ArgonButton,
