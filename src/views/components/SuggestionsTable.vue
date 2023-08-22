@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-header pb-0">
-      <h6>Stores</h6>
+      <h6>Suggestions</h6>
       <argon-button v-on:click="fetchData">Refresh</argon-button>
       <p>Last updated at {{ this.last_updated }}</p>
     </div>
@@ -10,37 +10,40 @@
         <table class="table align-items-center mb-0">
           <thead>
           <tr>
-            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Store</th>
+            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Shoe Model</th>
             <th
                 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2"
-            >Total Sales</th>
+            >From Store</th>
             <th
                 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2"
-            >Best Seller
+            >To Store
             </th>
             <th
                 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2"
-            >Worst Seller
+            >Current Inventory at Orgin
+            </th>
+            <th
+                class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2"
+            >Current Inventory at Destination
             </th>
           </tr>
           </thead>
           <tbody>
           <tr v-for="r in responses" :key="r">
             <td>
-              <div class="d-flex px-2 py-1">
-                <div class="d-flex flex-column justify-content-center">
-                  <h6 class="mb-0 text-sm">{{ r.name }}</h6>
-                </div>
-              </div>
+              <p class="text-xs font-weight-bold mb-0">{{ r.shoe_model }}</p>
             </td>
             <td>
-              <p class="text-xs font-weight-bold mb-0">{{ r.total_sales }}</p>
+              <p class="text-xs font-weight-bold mb-0">{{ r.high_stock_store }}</p>
             </td>
             <td>
-              <p class="text-xs font-weight-bold mb-0">{{ r.best_seller }}</p>
+              <p class="text-xs font-weight-bold mb-0">{{ r.low_stock_store }}</p>
             </td>
-            <td>
-              <p class="text-xs font-weight-bold mb-0">{{ r.worst_seller }}</p>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold">{{ r.high_stock_amount }}</span>
+            </td>
+            <td class="align-middle text-center">
+              <span class="text-secondary text-xs font-weight-bold">{{ r.low_stock_amount }}</span>
             </td>
           </tr>
           </tbody>
@@ -55,11 +58,11 @@
 import ArgonButton from "@/components/ArgonButton.vue";
 
 export default {
-  name: "stores-table",
+  name: "suggestions-table",
   components: {ArgonButton},
   data() {
     return {
-      responses: null,
+      responses: [],
       last_updated: ""
     };
   },
@@ -68,7 +71,7 @@ export default {
   },
   methods: {
     async fetchData() {
-      const res = await fetch(`http://127.0.0.1:3000/api/v1/stores`);
+      const res = await fetch(`http://127.0.0.1:3000/api/v1/inventory/suggestions`);
       this.responses = await res.json();
       this.getNow();
     },

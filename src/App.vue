@@ -54,7 +54,6 @@ import Configurator from "@/examples/Configurator.vue";
 import Navbar from "@/examples/Navbars/Navbar.vue";
 import AppFooter from "@/examples/Footer.vue";
 import { mapMutations } from "vuex";
-// import Pusher from "pusher-js";
 
 export default {
   name: "App",
@@ -80,27 +79,8 @@ export default {
       };
     }
   },
-  data() {
-    return {
-      messages: []
-    };
-  },
   beforeMount() {
     this.$store.state.isTransparent = "bg-transparent";
   },
-  onCreate() {
-    // Pusher.logToConsole = true;
-    //
-    // // TODO: get the key from an env file/encrypt it
-    // const pusher = new Pusher('f8fae05c56b80676064a', {
-    //   encryption: true,
-    //   cluster: 'us2'
-    // });
-
-    // const channel = pusher.subscribe('shoe-store-potloc');
-    // channel.bind('test', data => {
-    //   this.messages.push(data.message);
-    // });
-  }
 };
 </script>

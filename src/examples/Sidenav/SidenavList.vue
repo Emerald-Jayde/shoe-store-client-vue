@@ -41,9 +41,20 @@
       </li>
       <li class="nav-item">
         <sidenav-item
-            url="/insights"
-            :class="getRoute() === 'insights' ? 'active' : ''"
-            :navText="'Insights'"
+            url="/insights/sales"
+            :class="getRoute() === 'sales' ? 'active' : ''"
+            :navText="'Sales'"
+        >
+          <template v-slot:icon>
+            <i class="ni ni-chart-bar-32 text-primary text-sm opacity-10"></i>
+          </template>
+        </sidenav-item>
+      </li>
+      <li class="nav-item">
+        <sidenav-item
+            url="/insights/suggestions"
+            :class="getRoute() === 'suggestions' ? 'active' : ''"
+            :navText="'Suggestions'"
         >
           <template v-slot:icon>
             <i class="ni ni-bulb-61 text-success text-sm opacity-10"></i>
@@ -118,7 +129,7 @@ export default {
   methods: {
     getRoute() {
       const routeArr = this.$route.path.split("/");
-      return routeArr[1];
+      return routeArr.slice(-1);
     }
   }
 };
