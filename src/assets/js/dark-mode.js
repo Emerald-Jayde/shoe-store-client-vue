@@ -23,9 +23,6 @@ const btn_text_white = document.querySelectorAll(
 const card_border = document.querySelectorAll(".card.border");
 const card_border_dark = document.querySelectorAll(".card.border.border-dark");
 const svg = document.querySelectorAll("g");
-const navLinks = document.querySelectorAll(
-  ".navbar-main .nav-link, .navbar-main .breadcrumb-item, .navbar-main .breadcrumb-item a, .navbar-main h6"
-);
 const cardNavLinksIcons = document.querySelectorAll(".card .nav .nav-link i");
 const cardNavSpan = document.querySelectorAll(".card .nav .nav-link span");
 
